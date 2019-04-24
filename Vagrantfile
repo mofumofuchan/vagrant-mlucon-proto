@@ -87,7 +87,7 @@ Vagrant.configure(2) do |config|
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
       rm -rf private-isu
-      git clone https://github.com/catatsuy/private-isu.git
+      git clone https://github.com/mofumofuchan/private-isu.git
       (
         cd private-isu/provisioning
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts --connection=local image/ansible/*.yml
