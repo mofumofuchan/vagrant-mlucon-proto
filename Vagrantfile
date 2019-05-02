@@ -87,13 +87,13 @@ Vagrant.configure(2) do |config|
       apt-get install -y git python-pip libpython2.7-dev libyaml-dev libffi-dev
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
-      rm -rf private-isu
-      git clone https://github.com/mofumofuchan/private-isu.git
+      rm -rf mlucon-proto
+      git clone https://github.com/mofumofuchan/mlucon-proto.git
       (
-        cd private-isu/provisioning
+        cd mlucon-proto/provisioning
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts --connection=local image/ansible/*.yml
       )
-      rm -rf private-isu
+      rm -rf mlucon-proto
     SHELL
   end
 
@@ -108,13 +108,13 @@ Vagrant.configure(2) do |config|
       apt-get install -y git python-pip libpython2.7-dev libyaml-dev libffi-dev libssl-dev
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
-      rm -rf private-isu
-      git clone https://github.com/catatsuy/private-isu.git
+      rm -rf mlucon-proto
+      git clone https://github.com/mofumofuchan/mlucon-proto.git
       (
-        cd private-isu/ansible
+        cd mlucon-proto/ansible
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i production --connection=local setup-bench.yml
       )
-      rm -rf private-isu
+      rm -rf mlucon-proto
     SHELL
   end
 
