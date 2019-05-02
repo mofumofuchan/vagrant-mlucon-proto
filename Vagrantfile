@@ -28,7 +28,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.10"
+  #config.vm.network "private_network", ip: "192.168.33.10"
   # config.vm.network "private_network", type: "dhcp"
 
   # Create a public network, which generally matched to bridged network.
@@ -76,7 +76,8 @@ Vagrant.configure(2) do |config|
   # SHELL
 
   config.vm.define "image" do |web|
-    config.vm.provision "shell", inline: <<-SHELL
+    web.vm.network "private_network", ip: "192.168.33.21"
+    web.vm.provision "shell", inline: <<-SHELL
       set -e
       export DEBIAN_FRONTEND=noninteractive
       echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list
@@ -97,7 +98,8 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "bench" do |bench|
-    config.vm.provision "shell", inline: <<-SHELL
+    bench.vm.network "private_network", ip: "192.168.33.22"
+    bench.vm.provision "shell", inline: <<-SHELL
       set -e
       export DEBIAN_FRONTEND=noninteractive
       apt-get update
