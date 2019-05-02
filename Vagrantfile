@@ -105,7 +105,7 @@ Vagrant.configure(2) do |config|
       echo "deb http://deb.debian.org/debian jessie main" > /etc/apt/sources.list
       echo "deb http://security.debian.org jessie/updates main" >> /etc/apt/sources.list
       apt-get update
-      apt-get install -y git python-pip libpython2.7-dev libyaml-dev libffi-dev
+      apt-get install -y git python-pip libpython2.7-dev libyaml-dev libffi-dev libssl-dev
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
       rm -rf private-isu
