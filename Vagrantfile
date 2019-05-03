@@ -88,7 +88,7 @@ Vagrant.configure(2) do |config|
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
       rm -rf mlucon-proto
-      git clone https://github.com/mofumofuchan/mlucon-proto.git
+      git clone -b develop https://github.com/mofumofuchan/mlucon-proto.git
       (
         cd mlucon-proto/provisioning
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i hosts --connection=local image/ansible/*.yml
@@ -109,7 +109,7 @@ Vagrant.configure(2) do |config|
       pip install ecdsa 'paramiko<2' markupsafe ansible
 
       rm -rf mlucon-proto
-      git clone https://github.com/mofumofuchan/mlucon-proto.git
+      git clone -develop https://github.com/mofumofuchan/mlucon-proto.git
       (
         cd mlucon-proto/ansible
         PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=true ansible-playbook -i production --connection=local setup-bench.yml
